@@ -73,6 +73,22 @@ sum2 [] ys = ys
 sum2 xs [] = xs
 sum2 (x:xs) (y:ys) = (x + y) : sum2 xs ys
 
+--removeOdd
+removeOdd :: Integral a => [a] -> [a]
+removeOdd = filter even
+
+--removeEmpty
+removeEmpty :: [String] -> [String]
+removeEmpty = filter (not . null)
+
+--countTrue
+countTrue :: [Bool] -> Int
+countTrue = length . filter id
+
+--makePositive
+makePositive :: Num a => [a] -> [a]
+makePositive = map (\x -> abs x)
+
 main :: IO()
 main = do
-    print (sum2 [1,2] [1,2,3])
+    print (makePositive  [-1, 0, 5, -10, -20])
