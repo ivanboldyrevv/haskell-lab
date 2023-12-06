@@ -1,6 +1,7 @@
 {-
-1.  Определите функцию, принимающую на вход целое число n и возвращающую список, 
-    содержащий n элементов, упорядоченных по возрастанию.
+
+    1.  Определите функцию, принимающую на вход целое число n и возвращающую список, 
+        содержащий n элементов, упорядоченных по возрастанию.
 -}
 
 ---------------------------------------------------------------------------------------------
@@ -13,15 +14,15 @@ lst :: Int -> [Int]
 lst 0 = []
 lst n = lst (n - 1) ++ [n]
 
----list comp
+
 lstComp :: Int -> [Int]
 lstComp n = [1..n]
 
---map
+
 lstMap :: Int -> [Int]
 lstMap n = map (\x -> x) [1..n]
 
---foldr
+
 lstFoldr :: Int -> [Int]
 lstFoldr n = foldr (\x s -> x : s) [] [1..n]
 
@@ -49,22 +50,20 @@ lstFoldr n = foldr (\x s -> x : s) [] [1..n]
     2) Список нечетных натуральных чисел.
 -}
 
---Sorted list for odd nums
 oddLst :: Int -> [Int]
 oddLst 0 = []
 oddLst n
     | even n = oddLst (n - 1)
     | otherwise = oddLst (n - 1) ++ [n]
 
---or list comp
+
 oddLstComp :: Int -> [Int]
 oddLstComp n = [x | x <- [1..n], odd x]
 
---foldr
+
 oddLstFoldr :: Int -> [Int]
 oddLstFoldr n = foldr (\x s -> if odd x then x : s else s) [] [1..n]
 
---filter
 
 oddLstFilter :: Int -> [Int]
 oddLstFilter n = filter odd [1..n]
@@ -91,22 +90,21 @@ oddLstFilter n = filter odd [1..n]
     3) Список четных натуральных чисел.
 -}
 
---Sorted list for even nums
 evens :: Int -> [Int]
 evens 0 = []
 evens n
     | odd n = evens (n - 1)
     | otherwise = evens (n - 1) ++ [n]
 
---list comp
+
 evenLstComp :: Int -> [Int]
 evenLstComp n = [x | x <- [1..n], even x]
 
---foldr 
+
 evenFoldr :: Int -> [Int]
 evenFoldr n = foldr (\x s -> if even x then x : s else s) [] [1..n]
 
---filter
+
 evenFilter :: Int -> [Int]
 evenFilter n = filter even [1..n]
 
@@ -132,24 +130,25 @@ evenFilter n = filter even [1..n]
     4) Список квадратов натуральных чисел.
 -}
 
---Sorted list square for nums
+
 squareNums :: Int -> [Int]
 squareNums 0 = []
 squareNums n = squareNums (n - 1) ++ [n^2]
 
---lst comp
+
 squareNumsLstComp :: Int -> [Int]
 squareNumsLstComp n = [x^2 | x <- [1..n]]
 
---foldr 
+
 squareNumsFoldr :: Int -> [Int]
 squareNumsFoldr n = foldr (\x s -> x^2 : s) [] [1..n]
 
---map
+
 squareNumsMap :: Int -> [Int]
 squareNumsMap n = map (^2) [1..n]
 
 {-
+
     examples:
     
     input: squareNums 10
@@ -163,6 +162,7 @@ squareNumsMap n = map (^2) [1..n]
 
     input: squareNumsMap 10
     output: [1,4,9,16,25,36,49,64,81,100]
+
 -}
 
 ---------------------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ squareNumsMap n = map (^2) [1..n]
     5)  Список факториалов.
 -}
 
---Sorted list for factorial num
+
 factNums :: Int -> [Int]
 factNums 0 = []
 factNums n = factNums (n - 1) ++ [factorial n]
@@ -179,18 +179,18 @@ factNums n = factNums (n - 1) ++ [factorial n]
         factorial 0 = 1
         factorial n = factorial (n - 1) * n
 
---list comp
+
 factLstComp :: Int -> [Int]
 factLstComp n = [factorial x | x <- [1..n]]
     where factorial n = foldr (*) 1 [1..n]
 
---map
+
 factMap :: Int -> [Int]
 factMap n = map factorial [1..n]
     where
         factorial x = product [1..n]
 
---foldr 
+ 
 factFoldr :: Int -> [Int]
 factFoldr n = foldr (\x s -> factorial x : s) [] [1..n]
     where
@@ -198,6 +198,19 @@ factFoldr n = foldr (\x s -> factorial x : s) [] [1..n]
 
 {-
     examples:
+
+    input : factNums 10
+    output : [1,2,6,24,120,720,5040]
+
+    input : factLstComp 10
+    output : [1,2,6,24,120,720,5040]
+
+    input : factMap 10
+    output : [1,2,6,24,120,720,5040]
+
+    input : factFoldr 10
+    output : [1,2,6,24,120,720,5040]
+
 -}
 
 ---------------------------------------------------------------------------------------------
@@ -206,29 +219,95 @@ factFoldr n = foldr (\x s -> factorial x : s) [] [1..n]
     6) Список степеней двойки.
 -}
 
---Sorted list for power of two num
-sortedPowOfTwoNums :: Int -> [Int]
-sortedPowOfTwoNums 0 = []
-sortedPowOfTwoNums n = sortedPowOfTwoNums (n - 1) ++ [2 ^ n]
+
+powOfTwoNums :: Int -> [Int]
+powOfTwoNums 0 = []
+powOfTwoNums n = powOfTwoNums (n - 1) ++ [2 ^ n]
+
+
+powLstComp :: Int -> [Int]
+powLstComp n = [2 ^ x | x <- [1..n]]
+
+
+
+powMap :: Int -> [Int]
+powMap n = map (\x -> 2 ^ x) [1..n]
+
+
+powFoldr :: Int -> [Int]
+powFoldr n = foldr (\x s -> 2 ^ x : s) [] [1..n]
+
+{-
+
+    examples:
+
+    input : powOfTwoNums 10
+    output : [2,4,8,16,32,64,128,256,512,1024]
+
+    input : powLstComp 10
+    output : [2,4,8,16,32,64,128,256,512,1024]
+
+    input : powMap 10
+    output : [2,4,8,16,32,64,128,256,512,1024]
+
+    input : powFoldr 10
+    output : [2,4,8,16,32,64,128,256,512,1024]
+
+-}
+
+---------------------------------------------------------------------------------------------
 
 {-
     7) Список треугольных чисел.
 -}
 
---Sorted list for triangular nums
-sortedTriangularNums :: Int -> [Int]
-sortedTriangularNums 0 = []
-sortedTriangularNums n = sortedTriangularNums (n - 1) ++ [triangular n]
-
+--triangular func fon num_n in triangular numbers
 triangular :: Int -> Int
-triangular 0 = 0
-triangular n = n + triangular (n - 1)
+triangular n = sum [1..n]
+
+
+triangularNums :: Int -> [Int]
+triangularNums 0 = []
+triangularNums n = triangularNums (n - 1) ++ [triangular n]
+
+
+triangularLstComp :: Int -> [Int]
+triangularLstComp n = [triangular x | x <- [1..n]]
+
+
+triangularMap :: Int -> [Int]
+triangularMap n = map triangular [1..n]
+
+
+triangularFoldr :: Int -> [Int]
+triangularFoldr n = foldr (\x s -> triangular x : s) [] [1..n]
+
+{-
+
+    examples :
+
+    input : triangularNums 4
+    output : [1,3,6,10]
+
+    input : triangularLstComp 4
+    output : [1,3,6,10]
+
+    input : triangularMap 4
+    output : [1,3,6,10]
+
+    input : triangularFoldr 4
+    output : [1,3,6,10]
+
+
+-}
+
+---------------------------------------------------------------------------------------------
 
 {-
     8) Список пирамидальных чисел.
 -}
 
---Sorted list for pyramid nums
+
 sortedPyramidNums :: Int -> [Int]
 sortedPyramidNums 0 = []
 sortedPyramidNums n = sortedPyramidNums (n - 1) ++ [pyramid n]
@@ -237,40 +316,321 @@ pyramid :: Int -> Int
 pyramid 0 = 0
 pyramid n = triangular n + pyramid (n - 1)
 
---Func for avg real nums
-avg :: [Double] -> Double
-avg = uncurry (/) . go
-    where go [] = (0,0)
-          go (x:xs) = let (s,c) = go xs
-                      in (s+x,c+1)
+---------------------------------------------------------------------------------------------
 
---Func for nums on index
-getn :: Int -> [a] -> a
-getn 0 (x:_) = x
-getn n (_:xs) = getn (n-1) xs
+{-
 
---Sum of two lists
-sum2 :: Num a => [a] -> [a] -> [a]
-sum2 [] ys = ys
-sum2 xs [] = xs
-sum2 (x:xs) (y:ys) = (x + y) : sum2 xs ys
+    2. Определите следующие функции:
 
---removeOdd
+-}
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    1) Функция, принимающая на входе список вещественных чисел и
+    вычисляющую их арифметическое среднее. Постарайтесь, чтобы
+    функция осуществляла только один проход по списку.
+
+-}
+
+average :: [Double] -> Double
+average xs = total / fromIntegral n
+    where
+        (total, n) = foldr (\x (sumAcc, count) -> (sumAcc + x, count + 1)) (0, 0) xs
+
+{-
+
+    examples :
+
+    input : average [1, 2, 3, 5.5, 9.2]
+    output : 4.14
+
+-}
+
+---------------------------------------------------------------------------------------------
+{-
+
+    2) Функция вычленения n-го элемента из заданного списка.
+
+-}
+
+getOnIndex :: Int -> [a] -> a
+getOnIndex 0 (x:_) = x
+getOnIndex n (_:xs) = getOnIndex (n-1) xs
+
+{-
+
+    examles : 
+
+    input : getOnIndex 3 [11, 23, 54, 98, 19]
+    output : 98
+
+-}
+
+---------------------------------------------------------------------------------------------
+{-
+
+    3) Функция сложения элементов двух списков. Возвращает список,
+    составленный из сумм элементов списков-параметров. Учесть,
+    что переданные списки могут быть разной длины.
+
+-}
+
+sum3 :: Num a => [a] -> [a] -> [a]
+sum3 = zipWith (+)
+
+{-
+
+    examples :
+
+    input : sum3 [1, 0] [3, 4, 5]
+    output : [4,4]
+
+-}
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    4) Функция перестановки местами соседних четных и нечетных
+    элементов в заданном списке
+
+-}
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    5) Функция twopow n, которая вычисляет 2n, исходя из следую-
+    щих соображений. Пусть необходимо возвести 2 в степень n.
+    Если nчетно, т.е. n= 2k, то 2n= 22k= (2k)2. Если nнечетно,
+    т.е. n= 2k+ 1, то 2n= 22k+1 = 2 ·(2k)2. Функция twopow не
+    должна использовать оператор ^ или любую функцию возведения
+    в степень из стандартной библиотеки. Количество рекурсивных
+    вызовов функции должно быть пропорционально log n.
+
+-}
+
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    6) Функция removeOdd, которая удаляет из заданного
+    списка целых чисел все нечетные числа. Например:
+    removeOdd [1,4,5,6,10] должен возвращать [4,6,10].
+
+-}
+
 removeOdd :: Integral a => [a] -> [a]
 removeOdd = filter even
 
---removeEmpty
+removeOddR :: [Int] -> [Int]
+removeOddR [] = []
+removeOddR (x:xs)
+    | odd x = removeOddR xs
+    | otherwise = x : removeOddR xs
+
+removeOddFoldr :: [Integer] -> [Integer]
+removeOddFoldr = foldr (\x s -> if even x then x : s else s) []
+
+{-
+
+    examples : 
+    
+    input : removeOdd [1,4,5,6,10]
+    output : [4,6,10]
+
+    input : removeOddR [1,4,5,6,10]
+    output : [4,6,10]
+
+    input : removeOddFoldr [1,4,5,6,10]
+    output : [4,6,10]
+
+-}
+
+---------------------------------------------------------------------------------------------
+{-
+
+    7) Функция removeEmpty, которая удаляет пустые строки из за-
+    данного списка строк. Например:
+    removeEmpty ["", "Hello", "", "", "World!"]
+    возвращает ["Hello","World!"].
+
+-}
+
 removeEmpty :: [String] -> [String]
 removeEmpty = filter (not . null)
 
---countTrue
+removeEmptyFoldr :: [String] -> [String]
+removeEmptyFoldr = foldr (\x s -> if x == "" then s else x : s) []
+
+removeEmptyR :: [String] -> [String]
+removeEmptyR [] = []
+removeEmptyR (x:xs)
+    | x == "" = removeEmptyR xs
+    | otherwise = x : removeEmptyR xs
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    8) Функция countTrue :: [Bool] -> Integer, возвращаю-
+    щая количество элементов списка, равных True.
+
+-}
+
 countTrue :: [Bool] -> Int
 countTrue = length . filter id
 
---makePositive
+countTrueR :: [Bool] -> Int
+countTrueR [] = 0
+countTrueR (x:xs) = count + countTrueR xs
+    where
+        count = if x then 1 else 0
+
+countTrueFoldr :: [Bool] -> Int
+countTrueFoldr = foldr (\x s -> if x then s + 1 else s) 0
+
+{-
+
+    examples : 
+
+    let xs = [True, False]
+    let trueList = concat $ replicate 5 xs
+
+    input : countTrue trueList
+    output : 5
+
+    input : countTrueR trueList
+    output : 5
+
+    input : countTrueFoldr trueList
+    output : 5
+
+-}
+---------------------------------------------------------------------------------------------
+
+{-
+
+    9) Функция makePositive, которая меняет знак
+    всех отрицательных элементов списка чисел, напри-
+    мер: makePositive [-1, 0, 5, -10, -20] дает
+    [1,0,5,10,20]
+
+-}
+
 makePositive :: Num a => [a] -> [a]
-makePositive = map (\x -> abs x)
+makePositive = map abs
+
+makePositiveR :: (Num a, Ord a) => [a] -> [a]
+makePositiveR [] = []
+makePositiveR (x:xs)
+    | 0 > x = -x : makePositiveR xs
+    | otherwise = x : makePositiveR xs
+
+makePositiveFoldr :: (Num a, Ord a) => [a] -> [a]
+makePositiveFoldr = foldr (\x s -> if 0 > x then -x : s else x : s) []
+
+{-
+
+    examples :
+
+    input : makePositive [-1, -9, -10, 5, 10]
+    output : [1,9,10,5,10]
+
+    input : makePositiveR [-1, -9, -10, 5, 10]
+    output : [1,9,10,5,10]
+
+    input : makePositiveFoldr [-1, -9, -10, 5, 10]
+    output : [1,9,10,5,10]
+
+-}
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    10) Функция delete :: Char -> String -> String, кото-
+    рая принимает на вход строку и символ и возвращает
+    строку, в которой удалены все вхождения символа. При-
+    мер: delete ’l’ "Hello world!" должно возвращать "Heo
+    word!".
+
+-}
+
+delete :: Char -> String -> String
+delete _ [] = []
+delete n (x:xs)
+    | n == x = delete n xs
+    | otherwise = x : delete n xs
+
+deleteFilter :: Char -> String -> String
+deleteFilter n = filter (/= n)
+
+deleteFoldr :: Char -> String -> String
+deleteFoldr n = foldr (\x s -> if x == n then s else x : s) []
+
+{-
+
+    examples : 
+
+    input : delete 'l' "Hello, World!"
+    output : "Heo, Word!"
+
+    input : deleteFilter 'l' "Hello, World!"
+    output : "Heo, Word!"
+
+    input : deleteFoldr 'l' "Hello, World!"
+    output : "Heo, Word!"
+
+-}
+
+---------------------------------------------------------------------------------------------
+
+{-
+
+    11) Функция substitute :: Char -> Char -> String -> String,
+    которая заменяет в строке указанный символ на заданный. При-
+    мер: substitute ’e’ ’i’ "eigenvalue" возвращает
+    "iiginvalui"
+
+-}
+
+substitute :: Char -> Char -> String -> String
+substitute _ _ [] = []
+substitute f s (x:xs)
+    | f == x = s : substitute f s xs
+    | otherwise = x : substitute f s xs
+
+substituteFoldr :: Char -> Char -> String -> String
+substituteFoldr f q = foldr (\x s -> if x == f then q : s else x : s) []
+
+substituteMap :: Char -> Char -> String -> String
+substituteMap f s = map (\x -> if x == f then s else x)
+
+{-
+
+    examples :
+
+    input : substitute 'e' 'i' "eigenvalue"
+    output : "iiginvalui"
+
+    input : substituteFoldr 'e' 'i' "eigenvalue"
+    output : "iiginvalui"
+
+    input : substituteMap 'e' 'i' "eigenvalue"
+    output : "iiginvalui"
+
+
+-}
+
+---------------------------------------------------------------------------------------------
+
 
 main :: IO()
 main = do
-    print (lstFoldr 10)
+    let xs = [True, False]
+    let trueList = concat $ replicate 5 xs
+    print (substituteMap 'e' 'i' "eigenvalue")
