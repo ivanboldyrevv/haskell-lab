@@ -30,17 +30,17 @@ lstFoldr n = foldr (\x s -> x : s) [] [1..n]
 
 {-  examples:
 
-    input : lst 5
-    output : [1,2,3,4,5]
+        input : lst 5
+        output : [1,2,3,4,5]
 
-    input : lstComp 5
-    output : [1,2,3,4,5]
+        input : lstComp 5
+        output : [1,2,3,4,5]
 
-    input : lstMap 5
-    output : [1,2,3,4,5]
+        input : lstMap 5
+        output : [1,2,3,4,5]
 
-    input : lstFoldr 5
-    output : [1,2,3,4,5]
+        input : lstFoldr 5
+        output : [1,2,3,4,5]
 
 -}
 
@@ -71,17 +71,17 @@ oddLstFilter n = filter odd [1..n]
 {-  
     examples: 
     
-    oddLst 5
-    Output : [1,3,5,7,9]
+        oddLst 5
+        Output : [1,3,5,7,9]
 
-    oddLstComp 5
-    Output : [1,3,5,7,9]
+        oddLstComp 5
+        Output : [1,3,5,7,9]
 
-    oddLstFoldr 5
-    Output : [1,3,5,7,9]
+        oddLstFoldr 5
+        Output : [1,3,5,7,9]
 
-    oddLstFilter 5
-    Output : [1,3,5,7,9]
+        oddLstFilter 5
+        Output : [1,3,5,7,9]
 -}
 
 ---------------------------------------------------------------------------------------------
@@ -111,17 +111,17 @@ evenFilter n = filter even [1..n]
 {-
     examples:
 
-    input: evens 10
-    output: [2,4,6,8,10]
+        input: evens 10
+        output: [2,4,6,8,10]
 
-    input: evenLstComp 10
-    output: [2,4,6,8,10]
+        input: evenLstComp 10
+        output: [2,4,6,8,10]
 
-    input: evenFoldr 10
-    output: [2,4,6,8,10]
+        input: evenFoldr 10
+        output: [2,4,6,8,10]
 
-    input: evenFilter 10
-    output: [2,4,6,8,10]
+        input: evenFilter 10
+        output: [2,4,6,8,10]
 -}
 
 ---------------------------------------------------------------------------------------------
@@ -151,17 +151,17 @@ squareNumsMap n = map (^2) [1..n]
 
     examples:
     
-    input: squareNums 10
-    output: [1,4,9,16,25,36,49,64,81,100]
+        input: squareNums 10
+        output: [1,4,9,16,25,36,49,64,81,100]
 
-    input: squareNumsLstComp 10
-    output: [1,4,9,16,25,36,49,64,81,100]
+        input: squareNumsLstComp 10
+        output: [1,4,9,16,25,36,49,64,81,100]
 
-    input: squareNumsFoldr 10
-    output: [1,4,9,16,25,36,49,64,81,100]
+        input: squareNumsFoldr 10
+        output: [1,4,9,16,25,36,49,64,81,100]
 
-    input: squareNumsMap 10
-    output: [1,4,9,16,25,36,49,64,81,100]
+        input: squareNumsMap 10
+        output: [1,4,9,16,25,36,49,64,81,100]
 
 -}
 
@@ -190,7 +190,7 @@ factMap n = map factorial [1..n]
     where
         factorial x = product [1..n]
 
- 
+
 factFoldr :: Int -> [Int]
 factFoldr n = foldr (\x s -> factorial x : s) [] [1..n]
     where
@@ -199,17 +199,17 @@ factFoldr n = foldr (\x s -> factorial x : s) [] [1..n]
 {-
     examples:
 
-    input : factNums 10
-    output : [1,2,6,24,120,720,5040]
+        input : factNums 10
+        output : [1,2,6,24,120,720,5040]
 
-    input : factLstComp 10
-    output : [1,2,6,24,120,720,5040]
+        input : factLstComp 10
+        output : [1,2,6,24,120,720,5040]
 
-    input : factMap 10
-    output : [1,2,6,24,120,720,5040]
+        input : factMap 10
+        output : [1,2,6,24,120,720,5040]
 
-    input : factFoldr 10
-    output : [1,2,6,24,120,720,5040]
+        input : factFoldr 10
+        output : [1,2,6,24,120,720,5040]
 
 -}
 
@@ -241,17 +241,17 @@ powFoldr n = foldr (\x s -> 2 ^ x : s) [] [1..n]
 
     examples:
 
-    input : powOfTwoNums 10
-    output : [2,4,8,16,32,64,128,256,512,1024]
+        input : powOfTwoNums 10
+        output : [2,4,8,16,32,64,128,256,512,1024]
 
-    input : powLstComp 10
-    output : [2,4,8,16,32,64,128,256,512,1024]
+        input : powLstComp 10
+        output : [2,4,8,16,32,64,128,256,512,1024]
 
-    input : powMap 10
-    output : [2,4,8,16,32,64,128,256,512,1024]
+        input : powMap 10
+        output : [2,4,8,16,32,64,128,256,512,1024]
 
-    input : powFoldr 10
-    output : [2,4,8,16,32,64,128,256,512,1024]
+        input : powFoldr 10
+        output : [2,4,8,16,32,64,128,256,512,1024]
 
 -}
 
@@ -286,17 +286,17 @@ triangularFoldr n = foldr (\x s -> triangular x : s) [] [1..n]
 
     examples :
 
-    input : triangularNums 4
-    output : [1,3,6,10]
+        input : triangularNums 4
+        output : [1,3,6,10]
 
-    input : triangularLstComp 4
-    output : [1,3,6,10]
+        input : triangularLstComp 4
+        output : [1,3,6,10]
 
-    input : triangularMap 4
-    output : [1,3,6,10]
+        input : triangularMap 4
+        output : [1,3,6,10]
 
-    input : triangularFoldr 4
-    output : [1,3,6,10]
+        input : triangularFoldr 4
+        output : [1,3,6,10]
 
 
 -}
@@ -343,8 +343,8 @@ average xs = total / fromIntegral n
 
     examples :
 
-    input : average [1, 2, 3, 5.5, 9.2]
-    output : 4.14
+        input : average [1, 2, 3, 5.5, 9.2]
+        output : 4.14
 
 -}
 
@@ -363,8 +363,8 @@ getOnIndex n (_:xs) = getOnIndex (n-1) xs
 
     examles : 
 
-    input : getOnIndex 3 [11, 23, 54, 98, 19]
-    output : 98
+        input : getOnIndex 3 [11, 23, 54, 98, 19]
+        output : 98
 
 -}
 
@@ -384,8 +384,8 @@ sum3 = zipWith (+)
 
     examples :
 
-    input : sum3 [1, 0] [3, 4, 5]
-    output : [4,4]
+        input : sum3 [1, 0] [3, 4, 5]
+        output : [4,4]
 
 -}
 
@@ -398,6 +398,25 @@ sum3 = zipWith (+)
 
 -}
 
+swap :: [Int] -> [Int]
+swap [] = []
+swap (x:y:xs)
+    | even x && odd y = y : x : swap xs
+    | odd x && even y = y : x : swap xs
+    | otherwise = x : swap (y:xs)
+
+{-
+
+    examples: 
+
+        input : swap [1..10]
+        output : [2,1,4,3,6,5,8,7,10,9]
+
+        input : swap [1, 2, 3, 2]
+        output : [2,1,2,3]
+
+
+-}
 ---------------------------------------------------------------------------------------------
 
 {-
@@ -412,7 +431,32 @@ sum3 = zipWith (+)
 
 -}
 
+twopowR :: [Int] -> [Int]
+twopowR [] = []
+twopowR (x:xs) = pow2 x : twopowR xs
 
+twopow :: [Int] -> [Int]
+twopow = map (\ x -> pow2 x)
+
+pow2 :: Int -> Int
+pow2 n
+    | n == 1 = 2
+    | even n = w * w
+    | otherwise = (w * w) + (w * w)
+        where
+            w = pow2 $ n `div` 2
+
+{-
+
+    examples :
+
+        input : twopow [1..10]
+        output : [2,4,8,16,32,64,128,256,512,1024]
+
+        input : twopowR [1..10]
+        output : [2,4,8,16,32,64,128,256,512,1024]
+
+-}
 ---------------------------------------------------------------------------------------------
 
 {-
@@ -439,14 +483,14 @@ removeOddFoldr = foldr (\x s -> if even x then x : s else s) []
 
     examples : 
     
-    input : removeOdd [1,4,5,6,10]
-    output : [4,6,10]
+        input : removeOdd [1,4,5,6,10]
+        output : [4,6,10]
 
-    input : removeOddR [1,4,5,6,10]
-    output : [4,6,10]
+        input : removeOddR [1,4,5,6,10]
+        output : [4,6,10]
 
-    input : removeOddFoldr [1,4,5,6,10]
-    output : [4,6,10]
+        input : removeOddFoldr [1,4,5,6,10]
+        output : [4,6,10]
 
 -}
 
@@ -471,6 +515,21 @@ removeEmptyR [] = []
 removeEmptyR (x:xs)
     | x == "" = removeEmptyR xs
     | otherwise = x : removeEmptyR xs
+
+{-
+
+    examples : 
+
+        input : removeEmpty ["", "Hello", "", "", "World!"]
+        output : ["Hello","World!"]
+
+        input : removeEmptyFoldr ["", "Hello", "", "", "World!"]
+        output : ["Hello","World!"]
+
+        input : removeEmptyR ["", "Hello", "", "", "World!"]
+        output : ["Hello","World!"]
+
+-}
 
 ---------------------------------------------------------------------------------------------
 
@@ -497,17 +556,17 @@ countTrueFoldr = foldr (\x s -> if x then s + 1 else s) 0
 
     examples : 
 
-    let xs = [True, False]
-    let trueList = concat $ replicate 5 xs
+        let xs = [True, False]
+        let trueList = concat $ replicate 5 xs
 
-    input : countTrue trueList
-    output : 5
+        input : countTrue trueList
+        output : 5
 
-    input : countTrueR trueList
-    output : 5
+        input : countTrueR trueList
+        output : 5
 
-    input : countTrueFoldr trueList
-    output : 5
+        input : countTrueFoldr trueList
+        output : 5
 
 -}
 ---------------------------------------------------------------------------------------------
@@ -537,14 +596,14 @@ makePositiveFoldr = foldr (\x s -> if 0 > x then -x : s else x : s) []
 
     examples :
 
-    input : makePositive [-1, -9, -10, 5, 10]
-    output : [1,9,10,5,10]
+        input : makePositive [-1, -9, -10, 5, 10]
+        output : [1,9,10,5,10]
 
-    input : makePositiveR [-1, -9, -10, 5, 10]
-    output : [1,9,10,5,10]
+        input : makePositiveR [-1, -9, -10, 5, 10]
+        output : [1,9,10,5,10]
 
-    input : makePositiveFoldr [-1, -9, -10, 5, 10]
-    output : [1,9,10,5,10]
+        input : makePositiveFoldr [-1, -9, -10, 5, 10]
+        output : [1,9,10,5,10]
 
 -}
 
@@ -576,14 +635,14 @@ deleteFoldr n = foldr (\x s -> if x == n then s else x : s) []
 
     examples : 
 
-    input : delete 'l' "Hello, World!"
-    output : "Heo, Word!"
+        input : delete 'l' "Hello, World!"
+        output : "Heo, Word!"
 
-    input : deleteFilter 'l' "Hello, World!"
-    output : "Heo, Word!"
+        input : deleteFilter 'l' "Hello, World!"
+        output : "Heo, Word!"
 
-    input : deleteFoldr 'l' "Hello, World!"
-    output : "Heo, Word!"
+        input : deleteFoldr 'l' "Hello, World!"
+        output : "Heo, Word!"
 
 -}
 
@@ -614,14 +673,14 @@ substituteMap f s = map (\x -> if x == f then s else x)
 
     examples :
 
-    input : substitute 'e' 'i' "eigenvalue"
-    output : "iiginvalui"
+        input : substitute 'e' 'i' "eigenvalue"
+        output : "iiginvalui"
 
-    input : substituteFoldr 'e' 'i' "eigenvalue"
-    output : "iiginvalui"
+        input : substituteFoldr 'e' 'i' "eigenvalue"
+        output : "iiginvalui"
 
-    input : substituteMap 'e' 'i' "eigenvalue"
-    output : "iiginvalui"
+        input : substituteMap 'e' 'i' "eigenvalue"
+        output : "iiginvalui"
 
 
 -}
@@ -631,6 +690,4 @@ substituteMap f s = map (\x -> if x == f then s else x)
 
 main :: IO()
 main = do
-    let xs = [True, False]
-    let trueList = concat $ replicate 5 xs
-    print (substituteMap 'e' 'i' "eigenvalue")
+    print (swap [1, 2, 3, 2])
